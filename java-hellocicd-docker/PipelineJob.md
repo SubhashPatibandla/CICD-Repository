@@ -2,16 +2,23 @@
 
 **1. Prerequisites**
 
-Jenkins installed.
+Jenkins installed by using following command :
 
-Docker installed on Jenkins host.
+sudo apt install jenkins with Java as pre-requisite
+
+Docker installed on Jenkins host using following command :
+
+curl -fsSL https://get.docker.com | sudo sh
+
+Check the docker version
 
 docker -v
-
 
 Jenkins must have permission to run Docker (add jenkins user to docker group).
 
 sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
 
 **2. Setup**
 
