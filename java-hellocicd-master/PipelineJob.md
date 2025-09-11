@@ -1,4 +1,4 @@
-🔹 Step 1: Create a Pipeline Job in Jenkins
+**🔹 Step 1: Create a Pipeline Job in Jenkins**
 
 Go to Jenkins Dashboard → New Item.
 
@@ -6,7 +6,7 @@ Enter a name (e.g., Maven-Pipeline).
 
 Select Pipeline and click OK.
 
-🔹 Step 2: Configure the Pipeline Script
+**🔹 Step 2: Configure the Pipeline Script**
 
 In the Pipeline section, paste your script:
 
@@ -40,7 +40,7 @@ pipeline {
   }
 }
 
-🔹 Step 3: Things to Note
+**🔹 Step 3: Things to Note**
 
 The maven 'Maven-3.9.9' must exactly match the name you configured in
 Manage Jenkins → Global Tool Configuration → Maven.
@@ -53,7 +53,7 @@ archiveArtifacts saves your JAR into Jenkins build history.
 
 junit parses Surefire XML test reports (generated during Maven test phase).
 
-🔹 Step 4: Run the Job
+**🔹 Step 4: Run the Job**
 
 Save the pipeline.
 
