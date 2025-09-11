@@ -1,5 +1,6 @@
-Steps to Run Maven in a Freestyle Job
-1. Make sure prerequisites are ready
+**Steps to Run Maven in a Freestyle Job**
+
+**1. Make sure prerequisites are ready**
 
 Maven Integration plugin is installed
 (Manage Jenkins → Plugins → Installed → check for Maven Integration)
@@ -7,7 +8,7 @@ Maven Integration plugin is installed
 A Maven installation is configured in Jenkins
 (sudo apt install maven)
 
-2. Create a Freestyle Job
+**2. Create a Freestyle Job**
 
 Go to Jenkins Dashboard → New Item
 
@@ -15,7 +16,7 @@ Enter a name (e.g., maven-build-job)
 
 Select Freestyle project → Click OK
 
-3. Configure Source Code
+**3. Configure Source Code**
 
 In the job config page:
 
@@ -34,7 +35,7 @@ to
 
 */main
 
-4. Add "Build with Maven" Step
+**4. Add "Build with Maven" Step**
 
 Scroll to Build section
 
@@ -66,7 +67,7 @@ java-hellocicd-master/pom.xml
 
 If it’s in repo root → leave POM field empty (Jenkins will look for pom.xml in root).
 
-5. (Optional) Add Post-build Actions
+**5. (Optional) Add Post-build Actions**
 
 Publish JUnit test result report
 
@@ -80,7 +81,7 @@ Pattern: target/*.jar
 
 Ex: java-hellocicd-master/target/*.jar
 
-6. Save & Build
+**6. Save & Build**
 
 Click Save
 
@@ -92,4 +93,19 @@ Checkout code
 
 Run Maven with the goals you set
 
-Parse test results & archive artifacts (if configured)
+Parse test results & archive artifacts (if configured).
+
+**7. Jenkins built the JAR here:**
+
+/var/lib/jenkins/workspace/Build with Maven/java-hellocicd-master/target/java-hellocicd-master-1.0-SNAPSHOT.jar
+
+
+So if you SSH into the EC2 instance and go to that path, you’ll see the JAR.
+
+cd "/var/lib/jenkins/workspace/Build with Maven/java-hellocicd-master/target"
+ls -lh
+
+
+You should find:
+
+java-hellocicd-master-1.0-SNAPSHOT.jar
