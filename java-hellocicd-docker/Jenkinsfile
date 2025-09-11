@@ -1,38 +1,35 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.8.6-openjdk-11'
-      args '-v $HOME/.m2:/root/.m2'
-    }
-  }
-
-  stages {
-    stage('Checkout') {
-      steps { checkout scm }
+    agent {
+        docker {
+            image 'maven:3.9.9-eclipse-temurin-17'   // Maven + Java 17 image
+            args '-v /root/.m2:/root/.m2'          // Cache Maven dependencies
+        }
     }
 
-    stage('Build') {
-      steps { sh 'mvn clean compile' }
-    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/SubhashPatibandla/CICD-Repository'
+            }
+        }
 
-    stage('Test') {
-      steps { sh 'mvn test' }
-    }
+        stage('Build') {
+            steps {
+                sh 'mvn -f java-hellocicd-master/pom.xml clean package'
+            }
+        }
 
-    stage('Package') {
-      steps { sh 'mvn package' }
-    }
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'java-hellocicd-master/target/*.jar', fingerprint: true
+            }
+        }
 
-    stage('Archive') {
-      steps {
-        archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-      }
+        stage('Test Reports') {
+            steps {
+                junit 'java-hellocicd-master/target/surefire-reports/*.xml'
+            }
+        }
     }
-  }
-
-  post {
-    always {
-      echo "Pipeline finished with status: ${currentBuild.currentResult}"
-    }
-  }
 }
