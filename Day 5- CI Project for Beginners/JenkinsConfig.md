@@ -65,7 +65,7 @@ Enter your SonarQube authentication token (you get this token from SonarQube use
 
 Give the credential an ID (optional, for recognition) and click Add.
 
-Back in the SonarQube section, select this credential from the dropdown.
+IMP :: Back in the SonarQube section, select this credential from the dropdown(should be the same ID which you have configured in credentials).
 
 Click Save at the bottom of the page.
 
