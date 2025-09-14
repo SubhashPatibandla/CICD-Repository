@@ -16,7 +16,7 @@ Go to the Jenkins downloads page and get the "Generic Java package (.war)" file.
 
 5. Start Jenkins :
 
-Open a terminal/command prompt where you downloaded jenkins.war(C:\Downloads or E:\Downloads). Depends on where you have downloaded this jenkins.war file
+Open a terminal/command prompt where you downloaded jenkins.war(C:\Downloads or E:\Downloads). Depends on where you have downloaded this jenkins.war file.
 
 Run this command:
 
