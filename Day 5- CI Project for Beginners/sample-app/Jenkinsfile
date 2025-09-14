@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Store Artifacts') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: 'Day 5- CI Project for Beginners/sample-app/target/*.jar', fingerprint: true
             }
         }
 
