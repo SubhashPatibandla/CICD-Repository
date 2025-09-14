@@ -27,15 +27,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'cd sample-app && mvn clean package'
+                bat 'cd "Day 5- CI Project for Beginners\\sample-app" && mvn clean package'
             }
         }
 
         stage('SonarQube Scan') {
             steps {
-                withSonarQubeEnv('SonarQubeServer') {
-   		 bat 'cd sample-app && mvn sonar:sonar'
-		}
+               withSonarQubeEnv('SonarQubeServer') {
+    			bat 'cd "Day 5- CI Project for Beginners\\sample-app" && mvn sonar:sonar'
+				}
             }
         }
 
