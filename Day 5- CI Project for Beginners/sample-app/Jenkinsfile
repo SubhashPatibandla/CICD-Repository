@@ -22,14 +22,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'cd sample-app && mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('SonarQubeServer') {
-  		bat 'cd sample-app && mvn sonar:sonar'
+  		bat 'mvn sonar:sonar'
 		}
             }
         }
