@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    triggers {
+        githubPush()
+    }
+    tools {
+        maven 'maven-3.6.3'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/your-org/sample-app.git', branch: 'main'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Store Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+        stage('Publish JSON Results') {
+            steps {
+                script {
+                    def result = [
+                        buildNumber: env.BUILD_NUMBER,
+                        status: currentBuild.currentResult,
+                        timestamp: new Date().toString()
+                    ]
+                    writeJSON file: 'results/build-result.json', json: result
+                    archiveArtifacts artifacts: 'results/build-result.json', fingerprint: true
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo "Pipeline complete."
+        }
+    }
+}
