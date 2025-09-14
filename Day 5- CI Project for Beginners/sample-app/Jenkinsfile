@@ -30,15 +30,6 @@ pipeline {
                 bat 'cd "Day 5- CI Project for Beginners\\sample-app" && mvn clean package'
             }
         }
-
-        stage('SonarQube Scan') {
-            steps {
-               withSonarQubeEnv('SonarQubeServer') {
-    			bat 'cd "Day 5- CI Project for Beginners\\sample-app" && mvn sonar:sonar'
-				}
-            }
-        }
-
         stage('Store Artifacts') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
