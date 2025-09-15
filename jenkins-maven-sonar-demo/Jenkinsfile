@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'   // configure Maven in Jenkins global tools
+        jdk 'JDK11'      // configure JDK in Jenkins global tools
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/<your-username>/jenkins-maven-sonar-demo.git'
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            environment {
+                SONAR_HOST_URL = 'http://<your-sonarqube-server>:9000'
+            }
+            steps {
+                withSonarQubeEnv('SonarQubeServer') {
+                    sh "mvn sonar:sonar -Dsonar.projectKey=jenkins-maven-sonar-demo"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Archiving JAR artifacts...'
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+
+            echo 'Publishing JUnit test results...'
+            junit 'target/surefire-reports/*.xml'
+        }
+        success {
+            echo 'Pipeline finished successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
