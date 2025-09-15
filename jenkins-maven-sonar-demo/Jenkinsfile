@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/<your-username>/jenkins-maven-sonar-demo.git'
+                git 'https://github.com/SubhashPatibandla/CICD-Repository.git'
             }
         }
 
@@ -21,7 +21,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_HOST_URL = 'http://<your-sonarqube-server>:9000'
+                SONAR_HOST_URL = 'http://13.234.33.37:9000'
             }
             steps {
                 withSonarQubeEnv('SonarQubeServer') {
@@ -34,10 +34,10 @@ pipeline {
     post {
         always {
             echo 'Archiving JAR artifacts...'
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            archiveArtifacts artifacts: 'jenkins-maven-sonar-demo/target/*.jar', fingerprint: true
 
             echo 'Publishing JUnit test results...'
-            junit 'target/surefire-reports/*.xml'
+            junit 'jenkins-maven-sonar-demo/target/surefire-reports/*.xml'
         }
         success {
             echo 'Pipeline finished successfully!'
