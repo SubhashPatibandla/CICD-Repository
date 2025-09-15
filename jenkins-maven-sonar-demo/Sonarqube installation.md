@@ -14,7 +14,7 @@ docker run -d --name sonarqube \
   sonarqube:community
 
 
-It’ll download the image from Docker Hub (sonarqube:community).
+It’ll download the image from Docker Hub (sonarqube:community)..
 
 Exposes web UI on http://your-server-ip:9000
 .
