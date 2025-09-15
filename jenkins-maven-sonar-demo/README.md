@@ -8,7 +8,7 @@ This is a simple Java Maven app to demonstrate a CI pipeline in Jenkins with Son
 - Run SonarQube analysis
 - Archive build artifact
 
-## How to run locally
+## How to run locally ##
 ```bash
 mvn clean install
 java -cp target/jenkins-maven-sonar-demo-1.0-SNAPSHOT.jar com.example.App
