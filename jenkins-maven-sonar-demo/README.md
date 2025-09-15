@@ -6,7 +6,7 @@ This is a simple Java Maven app to demonstrate a CI pipeline in Jenkins with Son
 - Checkout from GitHub
 - Build & run unit tests with Maven
 - Run SonarQube analysis
-- Archive build artifact
+- Archive build artifact.
 
 ## How to run locally ##
 ```bash
