@@ -12,7 +12,7 @@ Maven Integration Plugin (for running Maven builds).
 
 SonarQube Scanner Plugin (for SonarQube integration).
 
-GitHub Integration Plugin (for webhooks and GitHub triggers)
+GitHub Integration Plugin (for webhooks and GitHub triggers).
 
 After installation, restart Jenkins if prompted.
 
