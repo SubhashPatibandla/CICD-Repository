@@ -2,7 +2,7 @@ Install Required Jenkins Plugins:
 
 Go to Manage Jenkins → Manage Plugins → Available and install the following plugins:
 
-Git Plugin (for Git SCM checkout).
+Git Plugin (for Git SCM checkout)..
 
 Pipeline (enables Jenkins Pipeline jobs)
 
