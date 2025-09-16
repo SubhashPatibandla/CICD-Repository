@@ -10,7 +10,7 @@ Pipeline Utility Steps (for JSON processing in pipeline)
 
 Maven Integration Plugin (for running Maven builds)
 
-SonarQube Scanner Plugin (for SonarQube integration)
+SonarQube Scanner Plugin (for SonarQube integration).
 
 GitHub Integration Plugin (for webhooks and GitHub triggers)
 
