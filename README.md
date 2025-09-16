@@ -22,7 +22,7 @@ Pre-Requisites:
 
 ### Run the below commands to install Java and Jenkins
 
-Install Java
+Install Java:
 
 ```
 sudo apt update
