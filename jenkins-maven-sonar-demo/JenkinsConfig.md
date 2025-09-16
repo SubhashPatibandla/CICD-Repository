@@ -1,4 +1,4 @@
-Install Required Jenkins Plugins:
+**Install Required Jenkins Plugins:
 
 Go to Manage Jenkins → Manage Plugins → Available and install the following plugins:
 
@@ -16,7 +16,7 @@ GitHub Integration Plugin (for webhooks and GitHub triggers)
 
 After installation, restart Jenkins if prompted.
 
-Install and Configure Tools in Jenkins:
+**Install and Configure Tools in Jenkins:
 
 Go to Manage Jenkins → Global Tool Configuration and configure:
 
