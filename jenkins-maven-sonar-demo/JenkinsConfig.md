@@ -4,7 +4,7 @@ Go to Manage Jenkins → Manage Plugins → Available and install the following 
 
 Git Plugin (for Git SCM checkout)..
 
-Pipeline (enables Jenkins Pipeline jobs)
+Pipeline (enables Jenkins Pipeline jobs).
 
 Pipeline Utility Steps (for JSON processing in pipeline)
 
