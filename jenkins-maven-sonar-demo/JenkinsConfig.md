@@ -14,7 +14,7 @@ SonarQube Scanner Plugin (for SonarQube integration).
 
 GitHub Integration Plugin (for webhooks and GitHub triggers).
 
-After installation, restart Jenkins if prompted.
+After installation, restart Jenkins if prompted.v
 
 **Install and Configure Tools in Jenkins:
 
